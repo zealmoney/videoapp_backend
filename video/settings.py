@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
+from pathlib2 import Path, os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,9 +27,12 @@ SECRET_KEY = 'django-insecure-x@*(1v7x+3$y&kimze!fa)u!d73b96mod#*s536knw5z5i!w2m
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '.vercel.app',
+    '.now.sh',
     'localhost',
     '127.0.0.1',
-    'https://video-app-hazel.vercel.app'
+    'https://video-app-hazel.vercel.app',
+    
 ]
 
 
@@ -82,14 +86,14 @@ WSGI_APPLICATION = 'video.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'video_db',
-        'USER':  'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
-    }
+    #'default': {
+    #    'NAME': 'video_db',
+    #    'USER':  'root',
+    #    'HOST': 'localhost',
+    #    'PORT': '3306'
+    #}
+
+    'default': dj_database_url.parse(f'postgresql://postgres:KTEEaWMZkyBAuqOXxulYPUglransIhgL@caboose.proxy.rlwy.net:45212/railway')
 }
 
 
@@ -128,6 +132,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -138,3 +144,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://video-app-hazel.vercel.app'
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
