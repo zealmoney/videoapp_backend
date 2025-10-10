@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     '.now.sh',
     'localhost',
     '127.0.0.1',
-    'https://video-app-hazel.vercel.app',
+    'https://video-app-hazel.vercel.app'
     
 ]
 
@@ -142,7 +142,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
-    'https://video-app-hazel.vercel.app'
+    'https://video-app-hazel.vercel.app',
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
