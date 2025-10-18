@@ -31,3 +31,14 @@ class Video(models.Model):
 
     def __str__(self):
         return self.title
+
+class MyList(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    image = models.TextField()
+    videoUrl = models.TextField()
+    details = models.TextField(default="")
+    email = models.TextField()
+
+    def __str__(self):
+        return self.title

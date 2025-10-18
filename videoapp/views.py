@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Register, Video
-from .serializers import RegisterSerializer, VideoSerializer
+from .models import Register, Video, MyList
+from .serializers import RegisterSerializer, VideoSerializer, MyListSerializer
 
 
 class RegisterView(viewsets.ModelViewSet):
@@ -51,4 +51,8 @@ class PopularMovieView(viewsets.ModelViewSet):
 class PopularTvshowView(viewsets.ModelViewSet):
     queryset = Video.objects.filter(description='pop').values()
     serializer_class = VideoSerializer
+
+class MyListView(viewsets.ModelViewSet):
+    queryset = MyList.objects.all()
+    serializer_class = MyListSerializer
 

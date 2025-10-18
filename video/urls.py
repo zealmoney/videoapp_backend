@@ -33,6 +33,7 @@ router.register('romance', RomanceView, 'romance')
 router.register('scifi', ScifiView, 'scifi')
 router.register('documentary', DocumentaryView, 'documentary')
 router.register('thrillers', ThrillerView, 'thriller')
+router.register('mylists', ThrillerView, 'mylist')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
