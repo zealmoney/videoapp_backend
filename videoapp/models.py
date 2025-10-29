@@ -46,6 +46,8 @@ class MyList(models.Model):
 class Wallpaper(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
+    image = models.TextField(default="")
+    videoUrl = models.TextField(default="")
 
     def __str__(self):
         return self.title
