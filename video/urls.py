@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from videoapp.views import RegisterView, PopularMovieView, PopularTvshowView, VideoView, ActionView, DramaView, ComedyView, HorrorView, RomanceView, ScifiView, DocumentaryView, ThrillerView, MyListView
+from videoapp.views import RegisterView, PopularMovieView, PopularTvshowView, VideoView, ActionView, DramaView, ComedyView, HorrorView, RomanceView, ScifiView, DocumentaryView, ThrillerView, MyListView, WallpaperView
 
 router = routers.DefaultRouter()
 router.register('registers', RegisterView, 'register')
@@ -34,6 +34,7 @@ router.register('scifi', ScifiView, 'scifi')
 router.register('documentary', DocumentaryView, 'documentary')
 router.register('thrillers', ThrillerView, 'thriller')
 router.register('mylists', MyListView, 'mylist')
+router.register('wallpapers', WallpaperView, 'wallpaper')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
