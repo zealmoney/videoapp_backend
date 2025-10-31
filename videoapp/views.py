@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Register, Video, MyList, Wallpaper
+from .models import Register, Video, MyList
 from .serializers import RegisterSerializer, VideoSerializer, MyListSerializer
 
 
