@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Register, Video, MyList, Wallpaper
-from .serializers import RegisterSerializer, VideoSerializer, MyListSerializer, WallpaperSerializer
+from .serializers import RegisterSerializer, VideoSerializer, MyListSerializer
 
 
 class RegisterView(viewsets.ModelViewSet):
@@ -57,6 +57,6 @@ class MyListView(viewsets.ModelViewSet):
     serializer_class = MyListSerializer
 
 class WallpaperView(viewsets.ModelViewSet):
-    queryset = Wallpaper.objects.all()
-    serializer_class = WallpaperSerializer
+    queryset = Video.objects.filter(description='wall').values()
+    serializer_class = VideoSerializer
 

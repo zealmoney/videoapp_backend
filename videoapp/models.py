@@ -10,7 +10,8 @@ GENRES = [
     ('doc', 'Documentary'),
     ('thr', 'Thrillers'),
     ('pop', 'popular Tv Shows'),
-    ('mov', 'popular Movies')
+    ('mov', 'popular Movies'),
+    ('wall', 'Wallpapers')
 ]
 
 class Register(models.Model): 
@@ -39,15 +40,6 @@ class MyList(models.Model):
     videoUrl = models.TextField()
     details = models.TextField(default="")
     email = models.TextField()
-
-    def __str__(self):
-        return self.title
-
-class Wallpaper(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
-    image = models.TextField(default="")
-    videoUrl = models.TextField(default="")
 
     def __str__(self):
         return self.title
