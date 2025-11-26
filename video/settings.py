@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-x@*(1v7x+3$y&kimze!fa)u!d73b96mod#*s536knw5z5i!w2m
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1', 'https://video-app-rust-xi.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', 'localhost', '127.0.0.1', 'https://video-app-rust-xi.vercel.app', 'https://www.videomack.com/', 'videomack.com']
 
 
 # Application definition
@@ -136,6 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://video-app-rust-xi.vercel.app',
+    'https://www.videomack.com/', 
+    'videomack.com'
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
