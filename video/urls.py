@@ -18,13 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from videoapp.views import RegisterView, PopularMovieView, PopularTvshowView, VideoView, ActionView, DramaView, ComedyView, HorrorView, RomanceView, ScifiView, DocumentaryView, ThrillerView, MyListView, WallpaperView
+from videoapp.views import RegisterView, PopularMovieView, PopularTvshowView, VideoView, MovieView, TvShowView, ActionView, DramaView, ComedyView, HorrorView, RomanceView, ScifiView, DocumentaryView, ThrillerView, MyListView, WallpaperView
 
 router = routers.DefaultRouter()
 router.register('registers', RegisterView, 'register')
 router.register('popularmovies', PopularMovieView, 'popularmovie')
 router.register('populartvshows', PopularTvshowView, 'populartvshow')
 router.register('videos', VideoView, 'video')
+router.register('movies', MovieView, 'movie')
+router.register('tvshows', TvShowView, 'tvshow')
 router.register('actions', ActionView, 'action')
 router.register('dramas', DramaView, 'drama')
 router.register('comedy', ComedyView, 'comedy')

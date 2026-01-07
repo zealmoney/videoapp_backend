@@ -33,6 +33,26 @@ class Video(models.Model):
     def __str__(self):
         return self.title
 
+class Movie(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, choices=GENRES)
+    image = models.TextField()
+    videoUrl = models.TextField()
+    details = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
+class TvShow(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, choices=GENRES)
+    image = models.TextField()
+    videoUrl = models.TextField()
+    details = models.TextField(default="")
+
+    def __str__(self):
+        return self.title
+
 class MyList(models.Model):
     title = models.CharField(max_length=255)
     description = models.CharField(max_length=255)

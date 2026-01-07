@@ -136,8 +136,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://video-app-rust-xi.vercel.app',
-    'https://www.videomack.com/', 
-    'videomack.com'
+    'https://www.videomack.com', 
+    'https://videomack.com'
 ]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

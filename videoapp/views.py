@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Register, Video, MyList
-from .serializers import RegisterSerializer, VideoSerializer, MyListSerializer
+from .models import Register, Video, Movie, TvShow, MyList
+from .serializers import RegisterSerializer, VideoSerializer, MovieSerializer, TvShowSerializer, MyListSerializer
 
 
 class RegisterView(viewsets.ModelViewSet):
@@ -11,6 +11,14 @@ class RegisterView(viewsets.ModelViewSet):
 class VideoView(viewsets.ModelViewSet):
     queryset = Video.objects.all()
     serializer_class = VideoSerializer
+
+class MovieView(viewsets.ModelViewSet):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class TvShowView(viewsets.ModelViewSet):
+    queryset = TvShow.objects.all()
+    serializer_class = TvShowSerializer
 
 class ActionView(viewsets.ModelViewSet):
     queryset = Video.objects.filter(description='act').values()
