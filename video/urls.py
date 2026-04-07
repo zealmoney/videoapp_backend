@@ -18,7 +18,33 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework import routers
-from videoapp.views import RegisterView, PopularMovieView, PopularTvshowView, VideoView, MovieView, TvShowView, ActionView, DramaView, ComedyView, HorrorView, RomanceView, ScifiView, DocumentaryView, ThrillerView, MyListView, WallpaperView
+from videoapp.views import (
+    RegisterView,
+    PopularMovieView,
+    PopularTvshowView,
+    VideoView,
+    MovieView,
+    TvShowView,
+    ActionView,
+    DramaView,
+    ComedyView,
+    HorrorView,
+    RomanceView,
+    ScifiView,
+    DocumentaryView,
+    ThrillerView,
+    MyListView,
+    WallpaperView,
+    TvShowActionView,
+    TvShowDramaView,
+    TvShowComedyView,
+    TvShowHorrorView,
+    TvShowRomanceView,
+    TvShowScifiView,
+    TvShowDocumentaryView,
+    TvShowThrillerView,
+    ToggleVideoLikeView,
+)
 
 router = routers.DefaultRouter()
 router.register('registers', RegisterView, 'register')
@@ -37,8 +63,17 @@ router.register('documentary', DocumentaryView, 'documentary')
 router.register('thrillers', ThrillerView, 'thriller')
 router.register('mylists', MyListView, 'mylist')
 router.register('wallpapers', WallpaperView, 'wallpaper')
+router.register('tvshowactions', TvShowActionView, 'tvshowaction')
+router.register('tvshowdramas', TvShowDramaView, 'tvshowdrama')
+router.register('tvshowcomedy', TvShowComedyView, 'tvshowcomedy')
+router.register('tvshowhorrors', TvShowHorrorView, 'tvshowhorror')
+router.register('tvshowromance', TvShowRomanceView, 'tvshowromance')
+router.register('tvshowscifi', TvShowScifiView, 'tvshowscifi')
+router.register('tvshowdocumentary', TvShowDocumentaryView, 'tvshowdocumentary')
+router.register('tvshowthrillers', TvShowThrillerView, 'tvshowthriller')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
+    path('api/videos/<int:video_id>/like/', ToggleVideoLikeView.as_view(), name='toggle-video-like'),
 ]

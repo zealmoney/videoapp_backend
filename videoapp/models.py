@@ -11,7 +11,15 @@ GENRES = [
     ('thr', 'Thrillers'),
     ('pop', 'popular Tv Shows'),
     ('mov', 'popular Movies'),
-    ('wall', 'Wallpapers')
+    ('wall', 'Wallpapers'),
+    ('act_tvshow', 'Action_TvShows'),
+    ('drm_tvshow', 'Drama_TvShows'),
+    ('cmd_tvshow', 'Comedy_TvShows'),
+    ('hor_tvshow', 'Horror_TvShows'),
+    ('rom_tvshow', 'Romance_TvShows'),
+    ('sci_tvshow', 'Sci-fi_TvShows'),
+    ('doc_tvshow', 'Documentary_TvShows'),
+    ('thr_tvshow', 'Thrillers_TvShows'),
 ]
 
 class Register(models.Model): 
@@ -63,3 +71,14 @@ class MyList(models.Model):
 
     def __str__(self):
         return self.title
+
+class VideoLike(models.Model):
+    video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='likes')
+    email = models.EmailField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('video', 'email')
+
+    def __str__(self):
+        return f"{self.email} liked {self.video.title}"
