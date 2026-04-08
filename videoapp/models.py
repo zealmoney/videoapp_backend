@@ -77,7 +77,7 @@ class MyList(models.Model):
 
 class VideoLike(models.Model):
     video = models.ForeignKey(Video, on_delete=models.CASCADE, related_name='likes')
-    email = models.EmailField()
+    email = models.EmailField(default=0, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
