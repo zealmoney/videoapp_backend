@@ -37,6 +37,7 @@ class Video(models.Model):
     image = models.TextField()
     videoUrl = models.TextField()
     details = models.TextField(default="")
+    count_likes = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.title
@@ -47,6 +48,7 @@ class Movie(models.Model):
     image = models.TextField()
     videoUrl = models.TextField()
     details = models.TextField(default="")
+    count_likes = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.title
@@ -57,6 +59,7 @@ class TvShow(models.Model):
     image = models.TextField()
     videoUrl = models.TextField()
     details = models.TextField(default="")
+    count_likes = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.title
